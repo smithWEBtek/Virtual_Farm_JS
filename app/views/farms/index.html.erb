@@ -66,9 +66,13 @@
 <h1>  Leave A Comment: </h1>
 <div id='comments'> </div>
 
-<form onsubmit='getComment(); return false;'>
+<div id="latest-comment">************ dummy text *************</div>
+
+
+/////// <form onsubmit='getComment(), return false;'>
+<form>
   <textarea id="yourComment"> </textarea> <br>
-  <input type='submit'>
+  <input type='submit' id="yourCommentSubmit">
 </form>
 
 

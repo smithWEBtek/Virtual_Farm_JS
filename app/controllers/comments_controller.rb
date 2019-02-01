@@ -17,8 +17,9 @@ def index
 end
 
 def create
-  @comment = Comment.create(comment_text: JSON.parse(params[:comment_text]))
-  render json: @comment , status: 201
+	# binding.pry
+  @comment = Comment.create(comment_text: params[:comment][:comment_text])
+  render json: @comment, status: 201
 end
 
 
@@ -28,6 +29,6 @@ end
   end
 
   def comment_params
-    params.require(:farm).permit(:comment_text  )
+    params.require(:comment).permit(:comment_text  )
   end
 end

@@ -38,7 +38,6 @@ skip_before_action :verify_authenticity_token
     end
   end
 
-
   def show
     respond_to do |format|
        format.html { render :show }
@@ -49,7 +48,12 @@ skip_before_action :verify_authenticity_token
   def index
     @available_farms = Farm.get_available_farms
     @owner = current_owner if is_signed_in?
-    #binding.pry
+		#binding.pry
+		respond_to do |format|
+			format.html {render :index}
+			format.json {render json: @available_farms }
+			format.xml {render xml: @available_farms }
+		end
   end
 
   def buy_farm
